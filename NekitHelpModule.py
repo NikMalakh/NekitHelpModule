@@ -11,12 +11,12 @@ logger = logging.getLogger(__name__)
 @loader.tds
 class HelpMod(loader.Module):
     """Помощь по командам юзербота"""
-    strings = {"name": "fyHelpMod",
+    strings = {"name": "NekitHelpMod",
                "bad_module": '<b>Ошибка: </b>❌ Модуля "<code>{}</code>" у тебя нет!',
                "single_mod_header": "<b>ℹ️ Инфа о модуле</b> <i>{}</i>:\n",
                "single_cmd": "\n {}\n",
                "undoc_cmd": "😢 <b>Ошибка:</b> У меня нет инфы про этот модуль",
-               "all_header": '😉 Список модулей: (их {} штук) \n\n',
+               "all_header": '😉 Список модулей (их {} штук): \n\nℹ️ Чтобы выполнить команду, наберите <code>.команда</code>\n ',
                "mod_tmpl": '\n <a href="tg://user?id={}">➡️</a> {}  ',
                "first_cmd_tmpl":"({}",
                "cmd_tmpl": ", {}",
@@ -84,7 +84,7 @@ class HelpMod(loader.Module):
         await utils.answer(message, reply)
 
     @loader.unrestricted
-    async def felixyeah(self, message):
+    async def nekitHelp(self, message):
         """😉NekitHelpMod Исходник: @GovnoCodules"""
         await (await self.client.get_messages(self.strings("mybot_tg", message), ids=118)).forward_to(message.to_id)
         await message.delete()
