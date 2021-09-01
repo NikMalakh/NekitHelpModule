@@ -10,17 +10,17 @@ logger = logging.getLogger(__name__)
 
 @loader.tds
 class HelpMod(loader.Module):
-    """Показывает это сообщение :)"""
+    """Помощь по командам юзербота"""
     strings = {"name": "fyHelpMod",
-               "bad_module": '<b>❌ Модуля</b> "<code>{}</code>" <b>у тебя нет!</b>',
-               "single_mod_header": "<b>ℹ️ Инфа о</b> <u>{}</u>:\n",
+               "bad_module": '<b>Ошибка: </b>❌ Модуля "<code>{}</code>" у тебя нет!',
+               "single_mod_header": "<b>ℹ️ Инфа о модуле</b> <i>{}</i>:\n",
                "single_cmd": "\n {}\n",
-               "undoc_cmd": "😖 У меня нет инфы про этот модуль",
+               "undoc_cmd": "😢 <b>Ошибка:</b> У меня нет инфы про этот модуль",
                "all_header": '😉 Список модулей: (их {} штук) \n\n',
-               "mod_tmpl": '\n <a href="tg://user?id={}">✔️</a> {}  ',
+               "mod_tmpl": '\n <a href="tg://user?id={}">➡️</a> {}  ',
                "first_cmd_tmpl":"({}",
                "cmd_tmpl": ", {}",
-               "felix": "felix"}
+               "nekit": "nekit"}
 
     @loader.unrestricted
     async def helpcmd(self, message):
