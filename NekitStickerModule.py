@@ -24,7 +24,7 @@ warnings.simplefilter("error", Image.DecompressionBombWarning)
 
 @loader.tds
 class StickersMod(loader.Module):
-    """Tasks with stickers"""
+    """Действия со стикерами"""
     strings = {"name": "NekitStickerMod",
                "stickers_username_cfg_doc": "Бот для создания стикеров",
                "sticker_size_cfg_doc": "Размер одного стикера",
@@ -49,9 +49,9 @@ class StickersMod(loader.Module):
         self._lock = asyncio.Lock()
 
     async def kangcmd(self, message):  # noqa: C901 # TODO: split this into helpers
-        """Use in reply or with an attached media:
-           .kang <pack name> [emojis]
-           If pack is not matched the most recently created will be used instead"""
+        """Используйте в ответ на стикер или фото:
+           .kang <тег стикерпака> [эмодзи]
+           Если стикерпака не существует, стикер будет добавлен в наиболее новый стикерпак"""
         args = utils.get_args(message)
         if len(args) not in (1, 2):
             logger.debug("wrong args len(%s) or bad args(%s)", len(args), args)
@@ -259,7 +259,7 @@ class StickersMod(loader.Module):
         await utils.answer(message, self.strings("added", message).format(packurl))
 
     async def gififycmd(self, message):
-        """Convert the replied animated sticker to a GIF"""
+        """При ответе на анимированный стикер превращает его в GIF-анимацию"""
         args = utils.get_args(message)
         fps = 5
         quality = 256
