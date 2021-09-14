@@ -1,3 +1,4 @@
+from telethon.tl.functions.messages import EditMessageRequest
 from .. import loader, utils 
 
 @loader.tds
