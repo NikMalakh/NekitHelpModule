@@ -3,7 +3,7 @@ from .. import loader, utils
 @loader.tds
 class NekitMod(loader.Module):
     """Модуль со стилями тайпинга"""
-    strings = {'name': 'nekitTyperModule'}
+    strings = {'name': 'NekitTyperMod'}
                
     async def client_ready(self, client, db):
         self.db = db
