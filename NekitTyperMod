@@ -9,5 +9,5 @@ class NekitMod(loader.Module):
         self.db = db
         self.client = client
         
-    async def ticker(self, message):
+    async def tickercmd(self, message):
         """Текст с бегущей строкой""" 
