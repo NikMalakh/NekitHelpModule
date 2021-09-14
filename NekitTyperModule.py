@@ -1,15 +1,12 @@
 from telethon.tl.functions.messages import EditMessageRequest
 from .. import loader, utils 
-
 @loader.tds
 class NekitMod(loader.Module):
     """Модуль со стилями тайпинга"""
-    strings = {'name': 'NekitTyperMod'}
-               
+    strings = {'name': 'NekitTyperMod'}          
     async def client_ready(self, client, db):
         self.db = db
-        self.client = client
-        
+        self.client = client     
     async def tickercmd(self, message):
         """Текст с бегущей строкой""" 
 	a = args
