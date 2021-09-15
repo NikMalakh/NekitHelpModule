@@ -11,6 +11,7 @@ class NekitMod(loader.Module):
 		"""Текст с бегущей строкой""" 
 		args = utils.get_args_raw(message) 
 		a = args
+		text = a
 		fsm = 0
 		lsm = 24
 		while(a!=""):
