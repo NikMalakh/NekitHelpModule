@@ -9,7 +9,7 @@ class NekitMod(loader.Module):
         self.client = client     
     async def tickercmd(self, message):
         """Текст с бегущей строкой""" 
-	args = utils.get_args_raw(message) 
+        args = utils.get_args_raw(message) 
         a = args
         fsm = 0
         lsm = 24
