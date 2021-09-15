@@ -1,5 +1,6 @@
 from telethon.tl.functions.messages import EditMessageRequest
 from .. import loader, utils 
+from time import sleep
 @loader.tds
 class NekitMod(loader.Module):
 	"""Модуль со стилями тайпинга"""
