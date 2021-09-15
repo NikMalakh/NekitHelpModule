@@ -14,7 +14,7 @@ class NekitMod(loader.Module):
 		a = args
 		text = args
 		fsm = 0
-		lsm = 24
+		lsm = 26
 		while(a!=""):
 			a = text[fsm:lsm]
 			await message.edit("—————————————————\n"+a+"\n—————————————————")
