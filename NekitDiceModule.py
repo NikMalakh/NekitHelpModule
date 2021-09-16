@@ -1,4 +1,19 @@
-#создано на основе официального модуля FTG
+#    Friendly Telegram (telegram userbot)
+#    Copyright (C) 2018-2019 The Authors
+
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU Affero General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or
+#    (at your option) any later version.
+
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU Affero General Public License for more details.
+
+#    You should have received a copy of the GNU Affero General Public License
+#    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
 import asyncio
 import logging
 
@@ -11,23 +26,23 @@ logger = logging.getLogger(__name__)
 
 @loader.tds
 class DiceMod(loader.Module):
-    """Кубик"""
-    strings = {"name": "nekitDiceMod"}
+    """Dice"""
+    strings = {"name": "Dice"}
 
     def __init__(self):
         self.config = loader.ModuleConfig("POSSIBLE_VALUES", {"": [1, 2, 3, 4, 5, 6],
                                                               "🎲": [1, 2, 3, 4, 5, 6],
                                                               "🎯": [1, 2, 3, 4, 5, 6],
-                                                              "🏀": [1, 2, 3, 4, 5], 
-							      "⚽": [1, 2, 3, 4, 5],
+                                                              "🏀": [1, 2, 3, 4, 5], 	
+						              "⚽": [1, 2, 3, 4, 5],
 							      "🎳": [1, 2,3,4,5, 6,7,8],
-							      "🎰": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64]},
+							      "🎰": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64]},},
                                           "Mapping of emoji to possible values")
 
     @loader.unrestricted
     async def dicecmd(self, message):
-        """Бросает кубик (можно с определённым значением)
-           .dice <эмодзи> <значение> <количество бросков>"""
+        """Rolls a die (optionally with the specified value)
+           .dice <emoji> <outcomes> <count>"""
         args = utils.get_args(message)
         if await self.allmodules.check_security(message, security.OWNER | security.SUDO):
             try:
@@ -93,4 +108,4 @@ ror, IndexError):
                 logger.debug("Rolled %d", rolled)
                 if rolled in values or not values:
                     done += 1
-          
+            
