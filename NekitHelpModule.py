@@ -114,8 +114,8 @@ class HelpMod(loader.Module):
                 text = f"<a href=\"{link}\">📎 Ссылка</a> на модуль {f}: <code>{link}</code>"
 
             out = io.BytesIO(r.__loader__.data)
-                out.name = f + ".py"
-                out.seek(0)
+            out.name = f + ".py"
+            out.seek(0)
 
             await message.respond(text, file=out)
             await message.delete()
