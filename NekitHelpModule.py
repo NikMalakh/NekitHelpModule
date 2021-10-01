@@ -110,7 +110,7 @@ class HelpMod(loader.Module):
             link = str(r).split('(')[1].split(')')[0]
             if "http" not in link:
                 text = f"Модуль {f}:"
-                else:
+            else:
                 text = f"<a href=\"{link}\">📎 Ссылка</a> на модуль {f}: <code>{link}</code>"
 
             out = io.BytesIO(r.__loader__.data)
