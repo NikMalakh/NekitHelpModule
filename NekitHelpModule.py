@@ -1,5 +1,5 @@
 import logging
-import inspect
+import io, inspect
 
 from telethon.tl.functions.channels import JoinChannelRequest
 
