@@ -110,7 +110,7 @@ class HelpMod(loader.Module):
             if "http" not in link:
                 text = f"Модуль {f}:"
             else:
-                text = f"<a href=\"{link}\">Ссылка</a> на {f}: <code>{link}</code>"
+                text = f"<a href=\"{link}\">📎 Ссылка</a> на модуль {f}: <code>{link}</code>"
 
             out = io.BytesIO(r.__loader__.data)
             out.name = f + ".py"
@@ -119,4 +119,4 @@ class HelpMod(loader.Module):
             await message.respond(text, file=out)
             await message.delete()
         except:
-            return await message.edit("Произошла непредвиденная ошибка")
+            return await message.edit("<b>🤔 Неизвестная ошибка</b>")
