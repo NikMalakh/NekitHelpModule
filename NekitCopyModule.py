@@ -6,10 +6,10 @@ import os
 from telethon.tl.functions.account import UpdateProfileRequest
 from telethon.tl.functions.users import GetFullUserRequest
 def register(cb):
-    cb(CuMod())
-class CuMod(loader.Module):
-    """Полное копирование юзера(ава, имя|фамилия, био)"""
-    strings = {'name': 'Cu'}
+    cb(NekitCloneMod())
+class NekitCloneMod(loader.Module):
+    """Клонирует пользователя (аватарку, имя, фамилию и био)"""
+    strings = {'name': 'nekitCloneMod'}
     def __init__(self):
         self.name = self.strings['name']
         self._me = None
@@ -18,11 +18,11 @@ class CuMod(loader.Module):
         self._db = db
         self._client = client
         self.me = await client.get_me()
-    async def cucmd(self, message):
-        """.cu <s> <a> <reply/@username>
-        <s> - Скрытый режим
-        <a> - Удалить ваши аватарки
-        Аргументы после юзера не указывайте, не скушает
+    async def clonecmd(self, message):
+        """.clone <s> <a> <реплай/@username>
+        <s> - 😎 Склонировать секретно
+        <a> - 🗑️ Удалить ваши аватарки
+        ❗ Аргументы после юзернейма не указывайте
         Примеры:
         .cu s @user/reply
         .cu a @user/reply
@@ -46,7 +46,7 @@ class CuMod(loader.Module):
                         continue
         if user == None and reply != None: user = reply.sender
         if user == None and reply == None:
-            if not s: await message.edit("Кого?")
+            if not s: await message.edit("<b>Ошибка ❌: </b>Кого клонируем?")
             return
         if s: await message.delete()
         if not s:
@@ -61,7 +61,7 @@ class CuMod(loader.Module):
         if not s: await message.edit("🧐 Собираем данные об аватарке... [35%]\n[✔️✔️✔️❌❌❌❌❌❌❌]")
         if full.profile_photo:
             up = await message.client.upload_file(await message.client.download_profile_photo(user, bytes))
-            if not s: await message.edit("Ставим аватарку... [50%]\n[✔️✔️✔️✔️✔️❌❌❌❌❌]")
+            if not s: await message.edit("🌠 Ставим аватарку... [50%]\n[✔️✔️✔️✔️✔️❌❌❌❌❌]")
             await message.client(functions.photos.UploadProfilePhotoRequest(up))
         if not s: await message.edit("🖥️ Хакерим...  [99%]\n[✔️✔️✔️✔️✔️✔️✔️✔️✔️❌]")
         await message.client(UpdateProfileRequest(
@@ -69,7 +69,7 @@ class CuMod(loader.Module):
             user.last_name if user.last_name != None else "",
             full.about[:70] if full.about != None else ""
         ))
-        if not s: await message.edit("Аккаунт клонирован! [100%]\n[✔️✔️✔️✔️✔️✔️✔️✔️✔️✔️]")
+        if not s: await message.edit("😉 Аккаунт клонирован! [100%]\n[✔️✔️✔️✔️✔️✔️✔️✔️✔️✔️]")
         if not s: await sleep(5)
         if not s: await message.edit("✔️ Аккаунт успешно клонирован!")
         
